@@ -1,35 +1,69 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { FaPlay } from "react-icons/fa";
+import Button from "./components/button";
 
-function App() {
-  const [count, setCount] = useState(0)
+const buttonSizes: Array<"small" | "medium" | "large"> = [
+  "small",
+  "medium",
+  "large",
+];
 
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className='text-red-500'>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="p-8 w-fit mx-auto">
+      <table className="border-collapse border border-gray-300 text-center">
+        <thead>
+          <tr>
+            <th className="border border-gray-300 p-4 text-gray-500"></th>
+            <th className="border border-gray-300 p-4 text-gray-500">Icon</th>
+            <th className="border border-gray-300 p-4 text-gray-500">Non</th>
+            <th className="border border-gray-300 p-4 text-gray-500">Hover</th>
+            <th className="border border-gray-300 p-4 text-gray-500">
+              Disabled
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {buttonSizes.map((size) => (
+            <tr key={size}>
+              <td className="border border-gray-300 p-4 capitalize text-gray-500">
+                {size}
+              </td>
+              {/* Icon */}
+              <td className="border border-gray-300 p-4">
+                <Button icon={<FaPlay size={12} />} size={size} />
+              </td>
 
-export default App
+              {/* Non */}
+              <td className="border border-gray-300 p-4">
+                <Button
+                  text="Play"
+                  icon={<FaPlay size={12} />}
+                  size={size}
+                  hover={false}
+                  selected={true}
+                />
+              </td>
+
+              {/* Hover */}
+              <td className="border border-gray-300 p-4">
+                <Button text="Play" icon={<FaPlay size={12} />} size={size} />
+              </td>
+
+              {/* Disabled */}
+              <td className="border border-gray-300 p-4">
+                <Button
+                  text="Play"
+                  size={size}
+                  icon={<FaPlay size={12} />}
+                  disabled
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default App;
