@@ -13,6 +13,7 @@ import { GiBrain } from "react-icons/gi";
 import Button from "./components/button";
 import ChatBubble from "./components/chat-bubble";
 import TagSelector from "./components/tag-selector";
+import Timer from "./components/timer";
 
 const buttonSizes: Array<"small" | "medium" | "large"> = [
   "small",
@@ -170,6 +171,10 @@ const App = () => {
             />
           </div>
         )}
+      </div>
+
+      <div className="flex justify-center">
+        <Timer label="Espress" maxTime={30} />
       </div>
     </>
   );

@@ -3,26 +3,28 @@ import classNames from "classnames";
 
 type ButtonProps = {
   text?: string;
+  color?: string;
+  hover?: boolean;
+  disabled?: boolean;
+  selected?: boolean;
+  className?: string;
+  onClick?: () => void;
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
   size?: "small" | "medium" | "large";
-  disabled?: boolean;
-  selected?: boolean;
-  hover?: boolean;
-  className?: string;
-  onClick?: () => void;
 };
 
 const Button: React.FC<ButtonProps> = ({
   text,
   icon,
-  iconPosition = "left",
+  color,
+  onClick,
+  className,
   hover = true,
   size = "medium",
   disabled = false,
   selected = false,
-  className,
-  onClick,
+  iconPosition = "left",
 }) => {
   const baseStyles =
     "inline-flex items-center justify-center font-small focus:outline-none transition-colors";
@@ -41,7 +43,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const colorStyles = disabled
     ? "bg-gray-300 text-gray-400 cursor-not-allowed"
-    : "bg-blue-500 text-white";
+    : color || "bg-blue-500 text-white";
 
   const hoverStyles = hover && !disabled ? "hover:bg-blue-400" : "";
 
@@ -67,7 +69,12 @@ const Button: React.FC<ButtonProps> = ({
   );
 
   return (
-    <button className={buttonClasses} onClick={onClick} disabled={disabled}>
+    <button
+      className={buttonClasses}
+      onClick={onClick}
+      disabled={disabled}
+      style={{ backgroundColor: color }}
+    >
       {icon && iconPosition === "left" && (
         <span className={text ? "mr-2" : ""}>{icon}</span>
       )}
