@@ -1,6 +1,5 @@
 # Falcon
 
-```markdown
 # 🚀 React Component Library + TypeScript + Vite
 
 <div align="center">
