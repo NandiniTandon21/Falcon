@@ -2,18 +2,18 @@ import React from "react";
 
 interface TagProps {
   label: string;
-  icon?: React.ReactNode;
   selected: boolean;
-  onClick: () => void;
   className?: string;
+  onClick: () => void;
+  icon?: React.ReactNode;
   selectedClassName?: string;
 }
 
 const Tag: React.FC<TagProps> = ({
-  label,
   icon,
-  selected,
+  label,
   onClick,
+  selected,
   className,
   selectedClassName,
 }) => {

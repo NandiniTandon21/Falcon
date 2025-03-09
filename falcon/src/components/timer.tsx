@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+
 import Button from "./button";
 
 interface TimerProps {
-  maxTime: number;
   label: string;
+  maxTime: number;
   activeColor?: string;
   inactiveColor?: string;
 }
 
 const Timer: React.FC<TimerProps> = ({
-  maxTime,
   label,
+  maxTime,
   activeColor = "#ff6b00",
   inactiveColor = "#444444",
 }) => {
-  const [time, setTime] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
+  const [time, setTime] = React.useState(0);
+  const [isRunning, setIsRunning] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     let timer: NodeJS.Timeout;
     if (isRunning && time < maxTime) {
       timer = setTimeout(() => setTime(time + 1), 1000);
@@ -81,7 +82,7 @@ const Timer: React.FC<TimerProps> = ({
         </span>
 
         <Button
-          className="relative w-7 h-7 rounded-full flex items-center justify-center shadow-md active:scale-90 transition-transform ml-5"
+          className="relative w-7 h-7 rounded-full flex items-center justify-center shadow-md active:scale-90 transition-transform ml-10"
           onClick={handleStartStop}
           hover={false}
           color="bg-amber-900"
@@ -93,7 +94,10 @@ const Timer: React.FC<TimerProps> = ({
           }
         />
 
-        <span className="text-lg font-normal" style={{ color: inactiveColor }}>
+        <span
+          className="text-lg font-normal ml-10"
+          style={{ color: inactiveColor }}
+        >
           {label}
         </span>
       </div>

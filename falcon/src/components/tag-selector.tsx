@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Tag from "./tag";
+import React from "react";
 import { RxCrossCircled } from "react-icons/rx";
+
+import Tag from "./tag";
 
 interface Tag {
   label: string;
@@ -18,7 +19,7 @@ const TagSelector: React.FC<TagSelectorProps> = ({
   tags,
   multiSelect = false,
 }) => {
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
 
   const handleTagClick = (tag: string) => {
     if (multiSelect) {
