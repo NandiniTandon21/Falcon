@@ -4,8 +4,6 @@
 
 <div align="center">
 
-![Component Library](https://via.placeholder.com/800x400)
-
 *A modern, customizable UI component library for React applications*
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-blue.svg)](https://www.typescriptlang.org/)
