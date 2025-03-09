@@ -1,4 +1,3 @@
-Here's the full README in markdown format without any modifications:
 
 ```markdown
 # React Component Library + TypeScript + Vite
